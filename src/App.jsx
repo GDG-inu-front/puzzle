@@ -1,10 +1,16 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
+import MainScreen from "./mainScreen/MainScreen";
+import PuzzleScreen from "./puzzleScreen/PuzzleScreen";
 
 const App = () => {
     return (
-        <h1>
-            초기
-        </h1>
+        <Router>
+            <Routes>
+                <Route path="/" element={<MainScreen />} />
+                <Route path="/puzzle" element={<PuzzleScreen />} />
+            </Routes>
+        </Router>
     )
 }
 

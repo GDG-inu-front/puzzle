@@ -3,6 +3,7 @@ import '../css/puzzleScreen.css'
 
 const PuzzleScreen = () => {
     const [isHovered, setIsHovered] = useState(false);
+    const [isChecked, setIsChecked] = useState(false);
     const [randomNumber, setRandomNumber] = useState(1); // 기본값 초기화
 
     // 컴포넌트가 처음 렌더링될 때만 실행하여 랜덤 숫자 설정
@@ -14,6 +15,11 @@ const PuzzleScreen = () => {
     // 숫자를 사용해 이미지 경로 설정
     const imagePath = `/images/${randomNumber}.jpg`;
 
+    // 체크 상태 변경 처리 함수
+    const checkHandled = (e) => {
+        setIsChecked(e.target.checked); // 체크 상태를 업데이트
+    };
+
     return (
         <div className="puzzleScreen-container">
             <div className={`puzzleScreen-blur ${isHovered ? 'blurred' : ''}`}></div>
@@ -23,9 +29,21 @@ const PuzzleScreen = () => {
             >
                 <img src={imagePath} alt="완성사진" className="final-img" />
             </div>
-            <div className="img-container">
-                <img src="" alt="퍼즐사진" />
+            <div className="imgAndCheckbox-container">
+                <div className="img-container">
+
+                </div>
+
+                <label className="checkbox">
+                    <input
+                        type="checkbox"
+                        checked={isChecked}
+                        onChange={checkHandled}
+                    />
+                    배경표시
+                </label>
             </div>
+
         </div>
     )
 }

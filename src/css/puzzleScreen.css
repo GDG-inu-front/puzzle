@@ -9,10 +9,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: true;
 }
 
 .img-container {
-    background-color: white;
+    background-image: url('../assets/images/innerImage.jpg');
+    background-size: cover;
+    /* 배경 이미지가 컨테이너를 채우도록 */
+    background-position: center;
+    /* 이미지가 가운데에 위치하도록 */
+    box-shadow: 0px 10px 10px #444;
     width: 800px;
     height: 484px;
 }
@@ -26,9 +32,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: -1;
     transition: backdrop-filter 0.5s ease;
 }
+
 
 .final-img-container {
     position: absolute;
@@ -42,6 +49,7 @@
     background-image: url('../assets/images/finalImageBorder.png');
     background-size: cover;
     background-position: center;
+    box-shadow: 0px 20px 20px #444;
 }
 
 .final-img-container::before {
@@ -68,6 +76,7 @@
 
 /* isHovered 상태가 true일 때 블러 효과 적용 */
 .puzzleScreen-blur.blurred {
+    z-index: 1;
     backdrop-filter: blur(5px);
     /* 블러 효과 */
 }
@@ -78,8 +87,22 @@
     transform-origin: top;
 }
 
+
 .final-img-container:not(:hover) {
     transform: scale(1);
     transform-origin: top;
     /* 축소 시 아래에서 위로 */
+}
+
+.imgAndCheckbox-container {
+    margin-top: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.checkbox {
+    display: flex;
+    justify-content: center;
 }

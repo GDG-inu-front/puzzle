@@ -106,3 +106,14 @@
     display: flex;
     justify-content: center;
 }
+
+.shadow-img {
+    position: absolute;
+    width: 800px;
+    height: 484px;
+    top: 166px;
+    opacity: 0.4;
+    /* 투명도 조정 (0.0 ~ 1.0) */
+    filter: brightness(1.0);
+    /* 밝기를 80%로 낮춤 */
+}

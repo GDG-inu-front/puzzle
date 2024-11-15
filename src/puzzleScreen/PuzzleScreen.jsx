@@ -30,8 +30,8 @@ const PuzzleScreen = () => {
                 <img src={imagePath} alt="완성사진" className="final-img" />
             </div>
             <div className="imgAndCheckbox-container">
+                {isChecked ? <img src={imagePath} alt="흐릿한 사진" className="shadow-img" /> : null}
                 <div className="img-container">
-
                 </div>
 
                 <label className="checkbox">

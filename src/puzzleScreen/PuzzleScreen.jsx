@@ -11,6 +11,7 @@ const PuzzleScreen = () => {
     const [randomNumber, setRandomNumber] = useState(1); // 기본값 초기화
     const [pieces, setPieces] = useState([]);
     const [image, setImage] = useState(null);
+    const [imagePath, setImagePath] = useState(null);
 
 
     // 컴포넌트가 처음 렌더링될 때만 실행하여 랜덤 숫자 설정
@@ -21,6 +22,8 @@ const PuzzleScreen = () => {
         const img = new Image();
         const imagePath = `/images/${randomNumber}.jpg`;
 
+        setImagePath(imagePath)
+
         img.src = imagePath;
         img.onload = () => {
 
@@ -29,7 +32,7 @@ const PuzzleScreen = () => {
 
     }, []);
 
-
+    //고쳐야 할 부분
     const createPuzzlePieces = (img) => {
         const pieceWidth = img.width / cols;
         const pieceHeight = img.height / rows;
@@ -65,11 +68,11 @@ const PuzzleScreen = () => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                <img src={image} alt="완성사진" className="final-img" />
+                <img src={imagePath} alt="완성사진" className="final-img" />
             </div>
             <div className="imgAndCheckbox-container">
                 <div className="img-container">
-                    {isChecked ? <img src={image} alt="흐릿한 사진" className="shadow-img" /> : null}
+                    {isChecked ? <img src={imagePath} alt="흐릿한 사진" className="shadow-img" /> : null}
                 </div>
 
                 <label className="checkbox">

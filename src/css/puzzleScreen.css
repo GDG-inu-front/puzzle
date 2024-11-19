@@ -39,7 +39,7 @@
 
 .final-img-container {
     position: absolute;
-    top: 35px;
+    top: 10%;
     width: 100px;
     height: 61px;
     z-index: 2;
@@ -108,10 +108,8 @@
 }
 
 .shadow-img {
-    position: absolute;
     width: 800px;
     height: 484px;
-    top: 166px;
     opacity: 0.4;
     /* 투명도 조정 (0.0 ~ 1.0) */
     filter: brightness(1.0);
